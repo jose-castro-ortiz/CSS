@@ -1,13 +1,47 @@
 body{
-    color:brown;
-    front-size: 25px;
+    font-family: sans-serif;
+    color: #333333;
 }
 
-p{
-    color:steelblue;
+/* Título principal */
+header h1{
+    color: #2563eb;
 }
 
-.color{
-    color: blueviolet;
-    front-size: 12px;
+/* Menú principal */
+header nav ul li a{
+    color: #1d4ed8;
+}
+
+/* Títulos de productos */
+article h2{
+    color: #7c3aed;
+}
+
+/* Descripciones y precios */
+article p{
+    color: #475569;
+}
+
+/* Enlaces de compra */
+.btn-comprar{
+    color: #059669;
+}
+
+/* Menú lateral */
+aside h2{
+    color: #ea580c;
+}
+
+aside ul li a{
+    color: #0891b2;
+}
+
+/* Pie de página */
+footer p{
+    color: #64748b;
+}
+
+footer ul li a{
+    color: #dc2626;
 }
