@@ -1,0 +1,13 @@
+body{
+    color:brown;
+    front-size: 25px;
+}
+
+p{
+    color:steelblue;
+}
+
+.color{
+    color: blueviolet;
+    front-size: 12px;
+}
