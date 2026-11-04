@@ -1,47 +1,66 @@
-body{
-    font-family: sans-serif;
-    color: #333333;
+body {
+  font-family: sans-serif;
+  color: #8b1b1b;
+  font-size: 16px;
 }
 
-/* Título principal */
-header h1{
-    color: #2563eb;
+.titulo {
+  color: rgb(5, 5, 110);
 }
 
-/* Menú principal */
-header nav ul li a{
-    color: #1d4ed8;
+
+.descripcion {
+  color: rgb(72, 84, 94);
 }
 
-/* Títulos de productos */
-article h2{
-    color: #7c3aed;
+.precio {
+  color: green;
+  font-weight: bold;
 }
 
-/* Descripciones y precios */
-article p{
-    color: #475569;
+
+
+/* Selectores combinados: aislar pintura por zonas */
+header nav ul li a {
+  color: blue;
+}
+header {
+  background-image:url(images.jpg);
 }
 
-/* Enlaces de compra */
-.btn-comprar{
-    color: #059669;
+aside ul li a {
+  color: rgb(5, 43, 49);
+}
+main { 
+  background-color: cadetblue;
+}
+article {
+  padding: 12px 34px 34px 34px;
+  
+}
+article { 
+  margin: 3%; 
+}
+footer ul li a {
+  color: red;
+}
+aside {
+  background-color: #020343;
 }
 
-/* Menú lateral */
-aside h2{
-    color: #ea580c;
+
+.btn-comprar {
+  color: orange; 
 }
 
-aside ul li a{
-    color: #0891b2;
+#btn-destacado {
+  color: purple; 
 }
 
-/* Pie de página */
-footer p{
-    color: #64748b;
-}
 
-footer ul li a{
-    color: #dc2626;
+article a.btn-comprar {
+  color: orange;
+}
+footer {
+  background-color: tomato;
 }
