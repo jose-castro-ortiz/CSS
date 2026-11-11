@@ -46,3 +46,23 @@ no se notan pero se ven mal. Con :root cada valor se define una sola vez y todos
 lo leen con var(), así que no pueden contradecirse. Cuando la hoja de estilos crece y se
 agregan más selectores, todos siguen usando los mismos valores y el diseño se mantiene igual
 en toda la página.
+
+### Tienda Online – Catálogo de Productos
+
+Esta actividad consistió en darle vida al catálogo con CSS, haciendo que la página reaccione cuando el usuario interactúa con ella. Trabajé en la rama feature/interactividad-css.
+
+Lo que hice
+Menú lateral: al pasar el cursor por una categoría cambia el fondo y el texto. Con CSS le puse un "•" antes de cada una y, si se navega con Tab, aparece un contorno naranja para saber dónde se está.
+Tarjetas: al pasar el cursor la tarjeta sube un poquito. Junto a cada título puse una insignia que dice "¡Nuevo!", y en el producto destacado dice "¡Oferta!".
+Botón Comprar: cambia de fondo al pasar el cursor y, al hacer clic, se hunde y cambia de color, como si de verdad lo estuviera presionando.
+Hallazgos: Pseudoclases y Pseudoelementos
+
+1. Qué diferencia hay entre una y otra. Una pseudoclase (:hover, :active, :focus) cambia cómo se ve algo que ya existe cuando el usuario hace algo con él, como pasar el cursor o hacer clic. Un pseudoelemento (::before, ::after) en cambio crea algo nuevo que no está escrito en el HTML, como el "•" del menú o las insignias. Para mí, la pseudoclase reacciona y el pseudoelemento agrega.
+
+2. Por qué importa :focus. Hay personas que no usan el mouse y se mueven por la página con la tecla Tab. Si no se les muestra en qué enlace están, se pierden. El :focus les da esa señal visual, y por eso es clave para que la página sea accesible para todos.
+
+3. Por qué decorar desde CSS. Si las insignias o los iconos se escribieran en el HTML, tendría que llenarlo de etiquetas que solo sirven de adorno. Con ::before y ::after el HTML se queda limpio, con solo el contenido real, y si quiero cambiar el diseño lo hago en un solo lugar sin tocar cada tarjeta.
+
+Cómo lo comprobé
+
+Abrí las herramientas de desarrollador, inspeccioné un enlace del menú y un botón, y con la opción :hov activé :hover, :active y :focus para ver cómo cambiaban. También vi que los ::before y ::after aparecen en el árbol de elementos aunque no estén en mi HTML.

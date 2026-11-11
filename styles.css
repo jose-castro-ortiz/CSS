@@ -1,62 +1,81 @@
 @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
-body {
-  font-family: sans-serif;
-  color: #f9f9f9;
-  font-size: 16px;
+
+:root {
+  --color-texto: #f9f9f9;
+  --color-titulo: darkblue;
+  --color-descripcion: steelblue;
+  --color-precio: rgb(194, 123, 123);
+  --color-menu: blue;
+  --color-categorias: rgb(156, 116, 116);
+  --color-fondo-main: rgb(214, 77, 77);
+  --color-fondo-aside: #020343;
+  --color-fondo-footer: rgb(186, 44, 44);
+  --color-footer-enlace: rgb(235, 222, 222);
+  --color-boton: rgb(32, 27, 18);
+  --color-boton-destacado: rgb(240, 230, 240);
+  --color-secundario: orange;
+  --color-menu-hover: #1a1c7a;
+  --fuente-principal: "Lora", sans-serif;
+  --espaciado-pequeno: 8px;
+  --espaciado-medio: 16px;
 }
 
-.titulo {
-  color: darkblue;
-}
+body { font-family: var(--fuente-principal); color: var(--color-texto); font-size: 16px; }
 
-.descripcion {
-  color: steelblue;
-}
+.titulo { color: var(--color-titulo); }
+.descripcion { color: var(--color-descripcion); }
+.precio { color: var(--color-precio); font-weight: bold; }
 
-.precio {
-  color: rgb(194, 123, 123);
-  font-weight: bold;
-}
+header { background-image: url(images.jpg); }
+header nav ul li a { color: var(--color-menu); }
 
-header nav ul li a {
-  color: blue;
-}
-header {
-  background-image:url(images.jpg);
-}
-
+aside { background-color: var(--color-fondo-aside); }
 aside ul li a {
-  color: rgb(156, 116, 116);
+  display: block;
+  color: var(--color-categorias);
+  padding: var(--espaciado-pequeno);
+  border-radius: 4px;
+  text-decoration: none;
+  transition: all 0.3s ease;
 }
-main { 
-  background-color: rgb(214, 77, 77);
-}
-article {
-  padding: 12px 34px 34px 34px;
-  
-}
-article { 
-  margin: 3%; 
-}
-footer ul li a {
-  color: rgb(61, 2, 2);
-}
-aside {
-  background-color: #020343;
-}
+aside ul li a::before { content: "• "; color: var(--color-secundario); }
+aside ul li a:hover { background-color: var(--color-menu-hover); color: var(--color-texto); }
+aside ul li a:focus { outline: 3px solid var(--color-secundario); outline-offset: 2px; }
 
+main { background-color: var(--color-fondo-main); }
+article { padding: 12px 34px 34px 34px; margin: 3%; transition: all 0.3s ease; }
+article:hover { transform: translateY(-2px); }
 
+article h2::after {
+  content: "¡Nuevo!";
+  margin-left: var(--espaciado-pequeno);
+  padding: 2px var(--espaciado-pequeno);
+  font-size: 0.5em;
+  vertical-align: middle;
+  color: var(--color-texto);
+  background-color: var(--color-fondo-aside);
+  border-radius: 10px;
+}
+article.destacado h2::after {
+  content: "¡Oferta!";
+  color: var(--color-boton);
+  background-color: var(--color-secundario);
+}
 .btn-comprar {
-  color: rgb(32, 27, 18); 
+  display: inline-block;
+  color: var(--color-secundario);
+  padding: var(--espaciado-pequeno) var(--espaciado-medio);
+  border: 2px solid var(--color-secundario);
+  border-radius: 6px;
+  text-decoration: none;
+  transition: all 0.3s ease;
 }
-
-#btn-destacado {
-  color: rgb(240, 230, 240); 
+#btn-destacado { color: var(--color-boton-destacado); }
+.btn-comprar:hover { background-color: var(--color-fondo-aside); }
+.btn-comprar:active {
+  background-color: var(--color-secundario);
+  color: var(--color-boton);
+  transform: translateY(2px) scale(0.97);
 }
-
-article a.btn-comprar {
-  color: orange;
-}
-footer {
-  background-color: rgb(6, 1, 1);
-}
+footer { background-color: var(--color-fondo-footer); }
+footer ul li a { color: var(--color-footer-enlace); }
