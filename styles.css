@@ -1,84 +1,62 @@
 @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
-:root {
-    /* Colores */
-    --color-primario: #d9534f;
-    --color-secundario: #a94442;
-    --color-fondo-main: #dff0d8;
-    --color-fondo-tarjeta: #ffffff;
-    --color-borde: #ddd;
-    --color-texto: #333333;
-    --color-texto-claro: #ffffff;
- 
-    /* Imagen de fondo */
-    --imagen-fondo: url('images.jpg');
- 
-    /* Tipografía */
-    --fuente-principal: 'Lora', serif;
- 
-    /* Espaciado */
-    --espaciado-pequeno: 8px;
-    --espaciado-medio: 16px;
-    --espaciado-grande: 24px;
-}
- 
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
- 
 body {
-    font-family: var(--fuente-principal);
-    font-weight: 400;
-    color: var(--color-texto);
-    font-family: "Lora", serif;
-  font-optical-sizing: auto;
-  font-weight: <weight>;
-  font-style: normal;
+  font-family: sans-serif;
+  color: #f9f9f9;
+  font-size: 16px;
 }
- 
-a {
-    color: var(--color-texto-claro);
+
+.titulo {
+  color: darkblue;
 }
- 
+
+.descripcion {
+  color: steelblue;
+}
+
+.precio {
+  color: rgb(194, 123, 123);
+  font-weight: bold;
+}
+
+header nav ul li a {
+  color: blue;
+}
 header {
-    background-color: var(--color-primario);
-    background-image: var(--imagen-fondo);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    padding: var(--espaciado-medio);
+  background-image:url(images.jpg);
 }
- 
-aside {
-    background-color: var(--color-secundario);
-    width: 100%;
-    padding: var(--espaciado-medio);
+
+aside ul li a {
+  color: rgb(156, 116, 116);
 }
- 
-main {
-    background-color: var(--color-fondo-main);
-    width: 100%;
-    padding: var(--espaciado-medio);
+main { 
+  background-color: rgb(214, 77, 77);
 }
- 
 article {
-    background-color: var(--color-fondo-tarjeta);
-    border: 1px solid var(--color-borde);
-    padding: var(--espaciado-medio);
-    margin: var(--espaciado-grande) 0;
+  padding: 12px 34px 34px 34px;
+  
 }
- 
-img {
-    display: block;
-    max-width: 100%;
-    height: auto;
+article { 
+  margin: 3%; 
 }
- 
-article img {
-    width: 100%;
-    max-width: 300px;
-    margin-bottom: var(--espaciado-pequeno);
-    border: 1px solid var(--color-borde);
-    border-radius: var(--espaciado-pequeno);
+footer ul li a {
+  color: rgb(61, 2, 2);
+}
+aside {
+  background-color: #020343;
+}
+
+
+.btn-comprar {
+  color: rgb(32, 27, 18); 
+}
+
+#btn-destacado {
+  color: rgb(240, 230, 240); 
+}
+
+article a.btn-comprar {
+  color: orange;
+}
+footer {
+  background-color: rgb(6, 1, 1);
 }
