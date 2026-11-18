@@ -1,4 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+@import url('componentes/menu.lateral.css');
+@import url('componentes/tarjetas.css');
+@import url('componentes/botones.css');
 
 :root {
   --color-texto: #f9f9f9;
@@ -22,60 +25,10 @@
 
 body { font-family: var(--fuente-principal); color: var(--color-texto); font-size: 16px; }
 
-.titulo { color: var(--color-titulo); }
-.descripcion { color: var(--color-descripcion); }
-.precio { color: var(--color-precio); font-weight: bold; }
-
 header { background-image: url(images.jpg); }
 header nav ul li a { color: var(--color-menu); }
 
-aside { background-color: var(--color-fondo-aside); }
-aside ul li a {
-  display: block;
-  color: var(--color-categorias);
-  padding: var(--espaciado-pequeno);
-  border-radius: 4px;
-  text-decoration: none;
-  transition: all 0.3s ease;
-}
-aside ul li a::before { content: "• "; color: var(--color-secundario); }
-aside ul li a:hover { background-color: var(--color-menu-hover); color: var(--color-texto); }
-aside ul li a:focus { outline: 3px solid var(--color-secundario); outline-offset: 2px; }
-
 main { background-color: var(--color-fondo-main); }
-article { padding: 12px 34px 34px 34px; margin: 3%; transition: all 0.3s ease; }
-article:hover { transform: translateY(-2px); }
 
-article h2::after {
-  content: "¡Nuevo!";
-  margin-left: var(--espaciado-pequeno);
-  padding: 2px var(--espaciado-pequeno);
-  font-size: 0.5em;
-  vertical-align: middle;
-  color: var(--color-texto);
-  background-color: var(--color-fondo-aside);
-  border-radius: 10px;
-}
-article.destacado h2::after {
-  content: "¡Oferta!";
-  color: var(--color-boton);
-  background-color: var(--color-secundario);
-}
-.btn-comprar {
-  display: inline-block;
-  color: var(--color-secundario);
-  padding: var(--espaciado-pequeno) var(--espaciado-medio);
-  border: 2px solid var(--color-secundario);
-  border-radius: 6px;
-  text-decoration: none;
-  transition: all 0.3s ease;
-}
-#btn-destacado { color: var(--color-boton-destacado); }
-.btn-comprar:hover { background-color: var(--color-fondo-aside); }
-.btn-comprar:active {
-  background-color: var(--color-secundario);
-  color: var(--color-boton);
-  transform: translateY(2px) scale(0.97);
-}
 footer { background-color: var(--color-fondo-footer); }
 footer ul li a { color: var(--color-footer-enlace); }

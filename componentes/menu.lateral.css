@@ -1,0 +1,16 @@
+aside { background-color: var(--color-fondo-aside); }
+
+aside ul li a {
+  display: block;
+  color: var(--color-categorias);
+  padding: var(--espaciado-pequeno);
+  border-radius: 4px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+aside ul li a::before { content: "• "; color: var(--color-secundario); }
+
+aside ul li a:hover { background-color: var(--color-menu-hover); color: var(--color-texto); }
+
+aside ul li a:focus { outline: 3px solid var(--color-secundario); outline-offset: 2px; }
