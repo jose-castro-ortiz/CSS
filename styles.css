@@ -4,7 +4,7 @@
 @import url('componentes/botones.css');
 
 :root {
-  --color-texto: #f9f9f9;
+  --color-texto: #f9f9f9; 
   --color-titulo: darkblue;
   --color-descripcion: steelblue;
   --color-precio: rgb(194, 123, 123);

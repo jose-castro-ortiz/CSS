@@ -11,60 +11,70 @@
 </head>
 <body>
 
-    <header>
-        <h1>Tienda Online</h1>
-        <nav>
-            <ul>
-                <li><a href="#">Inicio</a></li>
-                <li><a href="#">Productos</a></li>
-                <li><a href="#">Ofertas</a></li>
-                <li><a href="#">Contacto</a></li>
+    <header class="header"> 
+        <h1 class="header__title">Tienda Online</h1>
+        <navclass="header__nav">
+            <ul class="header__list">
+                <li class="header__item"><a class="header__link" href="#">Inicio</a></li>
+                <li class="header__item"><a class="header__link" href="#">Productos</a></li>
+                <li class="header__item"><a class="header__link" href="#">Ofertas</a></li>
+                <li class="header__item"><a class="header__link" href="#">Contacto</a></li>
             </ul>
         </nav>
     </header>
 
-    <aside>
-        <h2>Categorías</h2>
-        <ul>
-            <li><a href="#">Computadores</a></li>
-            <li><a href="#">Celulares</a></li>
-            <li><a href="#">Audífonos</a></li>
-            <li><a href="#">Smartwatch</a></li>
+    <aside class="aside">
+        <h2 class="aside__title">Categorías</h2>
+        <ul class="aside__list">
+            <li class="aside__item"><a class="aside__link" href="#">Computadores</a></li>
+            <li class="aside__item"><a class="aside__link" href="#">Celulares</a></li>
+            <li class="aside__item"><a class="aside__link" href="#">Audífonos</a></li>
+            <li class="aside__item"><a class="aside__link" href="#">Smartwatch</a></li>
         </ul>
     </aside>
 
-    <main>
-        <section>
-            <h2>Productos</h2>
+    <aside class="menu-lateral">
+        <h2 class="menu-lateral__title">Categorías</h2>
+        <ul class="menu-lateral__list">
+            <li class="menu-lateral__item"><a class="menu-lateral__link" href="#">Computadores</a></li>
+            <li class="menu-lateral__item"><a class="menu-lateral__link" href="#">Celulares</a></li>
+            <li class="menu-lateral__item"><a class="menu-lateral__link" href="#">Audífonos</a></li>
+            <li class="menu-lateral__item"><a class="menu-lateral__link" href="#">Smartwatch</a></li>
+        </ul>
+    </aside>
 
-            <article class="destacado">
-                <h2>Laptop Gamer</h2>
-                <p>Computador potente para juegos y trabajo.</p>
-                <p>Precio: $1.200</p>
-                <a href="#" class="btn-comprar" id="btn-destacado">Comprar</a>
+    <main class="catalogo">
+        <section class="catalogo__section">
+            <h2 class="catalogo__title">Productos</h2>
+
+            <article class="card card--destacada">
+                <h2 class="card__title card__title--destacado">Laptop Gamer</h2>
+                <p class="card__description">Computador potente para juegos y trabajo.</p>
+                <p class="card__price">Precio: $1.200</p>
+                <a href="#" class="btn btn--destacado">Comprar</a>
             </article>
 
-            <article>
-                <h2>Smartphone Pro</h2>
-                <p>Teléfono inteligente de última generación.</p>
-                <p>Precio: $850</p>
-                <a href="#" class="btn-comprar" id="btn-smartphone">Comprar</a>
+            <article class="card">
+                <h2 class="card__title">Smartphone Pro</h2>
+                <p class="card__description">Teléfono inteligente de última generación.</p>
+                <p class="card__price">Precio: $850</p>
+                <a href="#" class="btn">Comprar</a>
             </article>
 
-            <article>
-                <h2>Audífonos Bluetooth</h2>
-                <p>Sonido de alta calidad y gran comodidad.</p>
-                <p>Precio: $100</p>
-                <a href="#" class="btn-comprar" id="btn-audifonos">Comprar</a>
+            <article class="card">
+                <h2 class="card__title">Audífonos Bluetooth</h2>
+                <p class="card__description">Sonido de alta calidad y gran comodidad.</p>
+                <p class="card__price">Precio: $100</p>
+                <a href="#" class="btn btn--secundario">Comprar</a>
             </article>
         </section>
     </main>
 
-    <footer>
-        <p>© 2026 Tienda Online</p>
-        <ul>
-            <li><a href="#">Términos y condiciones</a></li>
-            <li><a href="#">Política de privacidad</a></li>
+    <footer class="footer">
+        <p class="footer__text">© 2026 Tienda Online</p>
+        <ul class="footer__list">
+            <li class="footer__item"><a class="footer__link" href="#">Términos y condiciones</a></li>
+            <li class="footer__item"><a class="footer__link" href="#">Política de privacidad</a></li>
         </ul>
     </footer>
 
