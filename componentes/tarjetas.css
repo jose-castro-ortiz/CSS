@@ -1,11 +1,12 @@
-.titulo { color: var(--color-titulo); }
-.descripcion { color: var(--color-descripcion); }
-.precio { color: var(--color-precio); font-weight: bold; }
 
-article { padding: 12px 34px 34px 34px; margin: 3%; transition: all 0.3s ease; }
-article:hover { transform: translateY(-2px); }
+.card { padding: var(--padding-tarjeta); margin: var(--margen-tarjeta); transition: all 0.3s ease; }
+.card:hover { transform: translateY(-2px); }
 
-article h2::after {
+.card__title { color: var(--color-titulo); }
+.card__description { color: var(--color-descripcion); }
+.card__price { color: var(--color-precio); font-weight: bold; }
+
+.card__title::after {
   content: "¡Nuevo!";
   margin-left: var(--espaciado-pequeno);
   padding: 2px var(--espaciado-pequeno);
@@ -13,10 +14,13 @@ article h2::after {
   vertical-align: middle;
   color: var(--color-texto);
   background-color: var(--color-fondo-aside);
-  border-radius: 10px;
-}
-article.destacado h2::after {
+  border-radius: var(--radio-insignia);
+
+.card--destacada { border: 2px solid var(--color-secundario); }
+
+.card__title--destacado::after {
   content: "¡Oferta!";
   color: var(--color-boton);
   background-color: var(--color-secundario);
+}
 }

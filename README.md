@@ -66,3 +66,93 @@ Hallazgos: Pseudoclases y Pseudoelementos
 Cómo lo comprobé
 
 Abrí las herramientas de desarrollador, inspeccioné un enlace del menú y un botón, y con la opción :hov activé :hover, :active y :focus para ver cómo cambiaban. También vi que los ::before y ::after aparecen en el árbol de elementos aunque no estén en mi HTML.
+
+
+# Tienda Online – Catálogo de Productos
+
+Página de catálogo de una tienda en línea. Durante las subactividades se centralizaron colores, tipografía y espaciados en variables (`:root`), se agregó interactividad con pseudoclases y pseudoelementos, y se modularizó el CSS con la nomenclatura BEM.
+
+## Vista previa
+
+![Vista del catálogo de la Tienda Online](captura.png)
+
+## Estructura
+
+```
+├── index.html
+├── styles.css            (maestro: @import, :root, body, header, catálogo y footer)
+├── images.jpg
+├── captura.png
+└── componentes/
+    ├── botones.css
+    ├── menu.lateral.css
+    └── tarjetas.css
+```
+
+## Hallazgos: Centralización de Identidad Visual y Espaciado
+
+### 1. Variables declaradas en `:root`
+
+**Colores**
+- `--color-texto`, `--color-titulo`, `--color-descripcion`, `--color-precio`
+- `--color-menu`, `--color-menu-hover`, `--color-categorias`
+- `--color-fondo-main`, `--color-fondo-aside`, `--color-fondo-footer`
+- `--color-footer-enlace`, `--color-boton`, `--color-boton-destacado`, `--color-secundario`
+
+**Tipografía**
+- `--fuente-principal`: Lora (Google Fonts)
+
+**Espaciados y tamaños**
+- `--espaciado-pequeno` (8px), `--espaciado-medio` (16px)
+- `--margen-tarjeta` (3%), `--padding-tarjeta`
+- `--radio-pequeno` (4px), `--radio-medio` (6px), `--radio-insignia` (10px)
+
+### 2. Ventaja de reutilizar medidas de margen y relleno
+
+Si cada selector lleva su propio número, la página termina con espacios distintos que no combinan. Con las variables uso siempre las mismas medidas, todo se ve ordenado, y para cambiar un espacio en toda la página edito un solo valor en `:root`.
+
+### 3. Cómo `:root` previene colisiones visuales
+
+Con los valores definidos una sola vez, ningún selector puede quedar con un tono o una medida ligeramente diferente. Todos leen de la misma variable con `var()`, así que aunque la hoja crezca el diseño se mantiene coherente.
+
+## Hallazgos: Pseudoclases y Pseudoelementos
+
+### 1. Diferencia entre pseudoclase y pseudoelemento
+
+Una pseudoclase (`:hover`, `:active`, `:focus`) describe un estado y se activa cuando el usuario hace algo, como pasar el cursor, hacer clic o llegar con Tab. Un pseudoelemento (`::before`, `::after`) crea contenido nuevo dentro del elemento, como el punto de cada categoría o la insignia "¡Nuevo!", sin que esté escrito en el HTML.
+
+### 2. Importancia de `:focus` para la accesibilidad
+
+Algunas personas no usan mouse y se mueven con la tecla Tab. Si el enlace activo no se distingue, no saben dónde están. Con `:focus` y un `outline` visible, cada categoría del menú se marca claramente y la página se puede usar solo con el teclado.
+
+### 3. Por qué inyectar elementos decorativos desde CSS
+
+Los adornos son parte del diseño, no del contenido. Ponerlos en el HTML obliga a repetir etiquetas vacías en cada tarjeta y ensucia la estructura. Con `::before` y `::after` el HTML queda limpio, y para cambiar o quitar un adorno edito solo el CSS.
+
+## Hallazgos: Arquitectura BEM y Modularidad
+
+### 1. Qué significa BEM y cómo se escribe
+
+BEM significa Bloque, Elemento y Modificador. El bloque es el componente completo (`.card`), el elemento es una parte que solo existe dentro del bloque y se escribe con doble guion bajo (`.card__title`), y el modificador es una variación y se escribe con doble guion medio (`.card--destacada`, `.btn--secundario`). Visualmente: `bloque__elemento--modificador`.
+
+### 2. Por qué dividir el CSS en varios archivos facilita el trabajo colaborativo
+
+Cuando todo el CSS está en un solo archivo, dos personas editan las mismas líneas y aparecen conflictos al unir el trabajo en Git. Con un archivo por componente (`tarjetas.css`, `botones.css`, `menu.lateral.css`), cada persona trabaja en el suyo, es fácil encontrar dónde está cada regla y se puede cambiar o eliminar un componente sin tocar los demás.
+
+### 3. Cómo BEM evita la guerra de especificidad
+
+Antes usaba selectores anidados como `article h2` o `aside ul li a`, que pesan más que una sola clase, y para pisarlos había que escribir selectores todavía más pesados. Con BEM cada regla usa una sola clase (peso 10), así que todas pesan igual y gana la que está después en el archivo. Ninguna regla pisa a otra por accidente y el resultado es predecible. Los modificadores se escriben después del bloque para sobrescribirlo de forma controlada.
+
+### Auditoría
+
+Se revisaron todos los selectores de `styles.css` y de `componentes/`: cada regla depende de una sola clase. Los estados (`:hover`, `:focus`, `:active`) suman una pseudoclase y pesan 20, y los pseudoelementos (`::before`, `::after`) pesan 11. La única regla por etiqueta es `body`. Los tres módulos se cargan con `@import` en las primeras líneas de `styles.css`.
+
+## Control de versiones
+
+```bash
+git checkout -b feature/arquitectura-bem
+git add .
+git commit -m "refactor(styles): modularizar codigo en archivos css independientes"
+git add index.html
+git commit -m "refactor(html): aplicar nomenclatura BEM en los componentes del catalogo"
+```
