@@ -1,0 +1,8 @@
+.footer {
+  background-color: var(--color-fondo-footer);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.footer__link { color: var(--color-footer-enlace); }

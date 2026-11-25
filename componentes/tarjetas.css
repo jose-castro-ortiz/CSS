@@ -1,10 +1,24 @@
-
-.card { padding: var(--padding-tarjeta); margin: var(--margen-tarjeta); transition: all 0.3s ease; }
+.card {
+  padding: var(--padding-tarjeta);
+  margin: var(--margen-tarjeta);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border: 2px solid var(--color-secundario);
+}
 .card:hover { transform: translateY(-2px); }
 
 .card__title { color: var(--color-titulo); }
-.card__description { color: var(--color-descripcion); }
-.card__price { color: var(--color-precio); font-weight: bold; }
+.card__description { color: var(--color-descripcion); flex-grow: 1; }
+.card__price-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.card__price { color: var(--color-precio); font-weight: bold; font-size: 1.25em; }
+.card__price-old { color: var(--color-descripcion); text-decoration: line-through; }
 
 .card__title::after {
   content: "¡Nuevo!";
@@ -15,12 +29,10 @@
   color: var(--color-texto);
   background-color: var(--color-fondo-aside);
   border-radius: var(--radio-insignia);
-
-.card--destacada { border: 2px solid var(--color-secundario); }
+}
 
 .card__title--destacado::after {
   content: "¡Oferta!";
   color: var(--color-boton);
   background-color: var(--color-secundario);
-}
 }

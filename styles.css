@@ -1,14 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+@import url('componentes/header.css');
 @import url('componentes/menu.lateral.css');
 @import url('componentes/tarjetas.css');
 @import url('componentes/botones.css');
+@import url('componentes/footer.css');
 
 :root {
-  --color-texto: #f9f9f9; 
+  --color-texto: #f9f9f9;
   --color-titulo: darkblue;
-  --color-descripcion: steelblue;
+  --color-descripcion: rgb(48, 48, 48);
   --color-precio: rgb(194, 123, 123);
-  --color-menu: blue;
+  --color-menu: #ffffff;
   --color-categorias: rgb(156, 116, 116);
   --color-fondo-main: rgb(214, 77, 77);
   --color-fondo-aside: #020343;
@@ -16,19 +18,25 @@
   --color-footer-enlace: rgb(235, 222, 222);
   --color-boton: rgb(32, 27, 18);
   --color-boton-destacado: rgb(240, 230, 240);
-  --color-secundario: orange;
-  --color-menu-hover: #1a1c7a;
+  --color-secundario: rgb(230, 110, 110);
+  --color-menu-hover: #2e2e2e;
   --fuente-principal: "Lora", sans-serif;
   --espaciado-pequeno: 8px;
   --espaciado-medio: 16px;
+  --espaciado-grande: 24px;
+  --margen-tarjeta: 3%;
+  --padding-tarjeta: 12px 34px 34px 34px;
+  --radio-pequeno: 4px;
+  --radio-medio: 6px;
+  --radio-insignia: 10px;
 }
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
 body { font-family: var(--fuente-principal); color: var(--color-texto); font-size: 16px; }
 
-header { background-image: url(images.jpg); }
-header nav ul li a { color: var(--color-menu); }
+.app-layout { display: flex; flex-direction: column; min-height: 100vh; }
 
-main { background-color: var(--color-fondo-main); }
+.main-wrapper { display: flex; flex: 1; }
 
-footer { background-color: var(--color-fondo-footer); }
-footer ul li a { color: var(--color-footer-enlace); }
+.catalogo { background-color: var(--color-fondo-main); flex: 1; }

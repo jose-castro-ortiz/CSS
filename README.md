@@ -155,4 +155,56 @@ git add .
 git commit -m "refactor(styles): modularizar codigo en archivos css independientes"
 git add index.html
 git commit -m "refactor(html): aplicar nomenclatura BEM en los componentes del catalogo"
-```
+
+
+
+Arquitectura Web Modular: Flexbox, BEM y Custom Properties
+
+Este proyecto implementa una interfaz de comercio electrónico (vitrina de productos) construida bajo una arquitectura CSS modular, escalable y totalmente elástica. Se integran principios de diseño moderno como el Modelo de Caja, la metodología BEM (Block, Element, Modifier), variables nativas de CSS (Custom Properties) y un sistema de maquetación basado en Flexbox desde la macro-estructura hasta los micro-componentes.
+
+📁 Estructura del Proyecto
+
+La hoja de estilos está dividida en módulos independientes para facilitar el mantenimiento y la escalabilidad:
+
+├── index.html
+└── css/
+    ├── base.css        # Variables globales (Custom Properties), reset y macro-layout (.app-layout, .main-wrapper)
+    ├── header.css      # Estilos de cabecera y barra de navegación (.header, .nav__list)
+    ├── aside.css       # Panel lateral de filtros y categorías (.aside)
+    ├── tarjeta.css     # Componente de tarjeta de producto y micro-layouts (.card)
+    └── footer.css      # Pie de página y distribución de enlaces (.footer)
+
+
+🛠️ Implementación de la Arquitectura
+
+Macro-Arquitectura (.app-layout & .main-wrapper): Contenedor principal flexible en columna que garantiza el aprovechamiento total del viewport, acompañando de un contenedor central que distribuye horizontalmente la barra lateral (<aside>) y la vitrina principal (<main>).
+
+Cabecera y Navegación (.header): Distribución espacial extrema (space-between) entre la identidad de marca y el menú, utilizando listas flexibles con espaciado uniforme.
+
+Panel Lateral (.aside): Organización vertical estructurada para controles de filtrado y categorías.
+
+Tarjeta de Producto (.card): Componente simétrico de altura uniforme con distribución interna elástica y alineación tipográfica en la sección de precios.
+
+Pie de Página (.footer): Reparto equitativo de información legal, derechos de autor y redes sociales.
+
+Hallazgos: Arquitectura Total con Flexbox
+
+Durante la construcción y auditoría de esta interfaz, se consolidaron tres aprendizajes fundamentales sobre el comportamiento del layout moderno en CSS:
+
+1. Control del Pie de Página con min-height: 100vh y flex-direction: column
+
+Uno de los problemas más comunes en el desarrollo web ocurre cuando una página tiene poco contenido y el pie de página (<footer>) queda flotando a mitad de la pantalla, dejando un espacio vacío debajo. Al configurar el contenedor global (.app-layout) con display: flex y flex-direction: column, transformamos el flujo natural de la página en una columna flexible. Al añadir min-height: 100vh, obligamos a que este contenedor mida como mínimo el 100% de la altura visible del navegador. Finalmente, al darle flex: 1 al contenedor central (.main-wrapper), este actúa como una esponja que absorbe todo el espacio vertical sobrante, empujando inevitablemente al <footer> hacia el borde inferior de la pantalla sin importar qué tan corto sea el contenido.
+
+2. Reemplazo de márgenes laterales mediante la propiedad gap
+
+Tradicionalmente, para separar los elementos de un menú de navegación (.nav__list) o los bloques de un panel lateral (.aside), era necesario aplicar márgenes externos (margin-right o margin-bottom) a cada ítem y luego usar pseudo-clases como :last-child para eliminar el margen sobrante del último elemento y evitar desalineaciones. Con la propiedad gap dentro de un contenedor Flexbox, este problema desaparece por completo. El espaciado se gestiona desde el elemento padre —apoyado en nuestras Custom Properties como var(--espaciado-medio)—, aplicando separación únicamente entre elementos adyacentes. Esto resulta en un código más limpio, predecible y libre de efectos secundarios en los bordes del contenedor.
+
+3. Resiliencia en tarjetas de producto: La sinergia de BEM, Custom Properties y Flexbox
+
+En una tienda real, los títulos y descripciones de los productos nunca tienen la misma cantidad de palabras, lo que suele romper la simetría visual de las cuadrículas. Al combinar estas tres tecnologías logramos un componente indestructible:
+
+BEM nos dio una estructura semántica clara (.card, .card__body, .card__price-wrapper, .card__button) sin conflictos de especificidad.
+
+Custom Properties aseguraron que los espaciados internos y tipografías mantuvieran una proporción matemática coherente en toda la interfaz.
+
+Flexbox resolvió la asimetría del contenido: al aplicar display: flex; flex-direction: column; height: 100%; a la .card y otorgarle flex-grow: 1 al contenedor de la descripción (.card__body), creamos un "resorte invisible". Si un producto tiene poco texto, su descripción crece para ocupar el espacio vacío; si tiene mucho texto, se expande naturalmente. En ambos casos, el botón de compra (.card__button) queda siempre anclado milimétricamente en la misma línea inferior, mientras que el micro-flexbox de precios (align-items: baseline) garantiza que el precio de oferta y el precio original tachado compartan exactamente la misma línea base de lectura.
