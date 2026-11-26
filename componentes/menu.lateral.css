@@ -3,6 +3,13 @@
   display: flex;
   flex-direction: column;
   gap: var(--espaciado-grande);
+  width: 220px;
+  flex-shrink: 0;
+  padding: var(--espaciado-medio);
+}
+
+.menu-lateral__title {
+  color: var(--color-texto);
 }
 
 .menu-lateral__link {
@@ -14,8 +21,17 @@
   transition: all 0.3s ease;
 }
 
-.menu-lateral__link::before { content: "• "; color: var(--color-secundario); }
+.menu-lateral__link::before {
+  content: "• ";
+  color: var(--color-secundario);
+}
 
-.menu-lateral__link:hover { background-color: var(--color-menu-hover); color: var(--color-texto); }
+.menu-lateral__link:hover {
+  background-color: var(--color-menu-hover);
+  color: var(--color-texto);
+}
 
-.menu-lateral__link:focus { outline: 3px solid var(--color-secundario); outline-offset: 2px; }
+.menu-lateral__link:focus-visible {
+  outline: 3px solid var(--color-secundario);
+  outline-offset: 2px;
+}

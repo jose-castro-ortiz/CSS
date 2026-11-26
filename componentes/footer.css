@@ -3,6 +3,30 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
+  flex-wrap: wrap;
+  gap: var(--espaciado-pequeno);
+  padding: var(--espaciado-medio);
 }
 
-.footer__link { color: var(--color-footer-enlace); }
+.footer__text {
+  color: var(--color-footer-enlace);
+}
+
+.footer__list {
+  display: flex;
+  gap: var(--espaciado-medio);
+}
+
+.footer__link {
+  color: var(--color-footer-enlace);
+  text-decoration: none;
+}
+
+.footer__link:hover {
+  text-decoration: underline;
+}
+
+.footer__link:focus-visible {
+  outline: 3px solid var(--color-secundario);
+  outline-offset: 2px;
+}

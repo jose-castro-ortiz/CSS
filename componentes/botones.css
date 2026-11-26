@@ -1,5 +1,7 @@
 .btn {
   display: inline-block;
+  text-align: center;
+  cursor: pointer;
   background-color: var(--color-secundario);
   color: var(--color-boton);
   padding: var(--espaciado-pequeno) var(--espaciado-medio);
@@ -8,9 +10,33 @@
   text-decoration: none;
   transition: all 0.3s ease;
 }
-.btn:hover { background-color: var(--color-menu-hover); color: var(--color-texto); }
+
+.btn:hover {
+  background-color: var(--color-menu-hover);
+  border-color: var(--color-menu-hover);
+  color: var(--color-texto);
+}
+
 .btn:active {
   background-color: var(--color-secundario);
   color: var(--color-boton);
   transform: translateY(2px) scale(0.97);
+}
+
+.btn:focus-visible {
+  outline: 3px solid var(--color-titulo);
+  outline-offset: 2px;
+}
+
+/* Modificadores BEM */
+.btn--destacado {
+  background-color: var(--color-titulo);
+  border-color: var(--color-titulo);
+  color: var(--color-boton-destacado);
+}
+
+.btn--secundario {
+  background-color: transparent;
+  border-color: var(--color-titulo);
+  color: var(--color-titulo);
 }
